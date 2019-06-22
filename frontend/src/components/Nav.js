@@ -20,8 +20,10 @@ const Nav = () => (
       className="uk-container-center uk-flex uk-flex-center"
       style={{ width: "100%" }}
     >
-      <img className="logo" src={logo} />
-      <img className="letras" src={letras} />
+      <a className="uk-flex uk-flex-center" href="/map">
+        <img className="logo" src={logo} />
+        <img className="letras" src={letras} />
+      </a>
     </div>
 
     <div

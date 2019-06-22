@@ -17,7 +17,7 @@ class Container extends Component {
     const { auth } = this.state;
     const { pathname } = this.props.location;
     if (!auth.email.length) {
-      return this.setState({ error: "Debes agregar una tarea" });
+      return this.setState({ error: "Ingresa tus datos" });
     }
     pathname === "/login" ? this.onLogin() : this.onRegister();
   };
