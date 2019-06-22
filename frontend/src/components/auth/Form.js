@@ -1,27 +1,29 @@
 import React from "react";
+import "../../stylesheets/Nav.css";
 
 const Form = ({ handleSubmit, handleChange, error, email, password }) => (
   <div>
     <form className="uk-form-stacked" onSubmit={handleSubmit}>
       <div className="uk-margin">
         <label className="uk-form-label text uk-text-bold" htmlFor="email">
-          Email:
+          Correo electrónico:
         </label>
         <div className="uk-inline">
-          <span className="uk-form-icon" uk-icon="icon: user" />
+          <span className="uk-form-icon" uk-icon="icon: mail" />
           <input
             value={email}
             onChange={handleChange}
             className="uk-input"
             type="email"
             name="email"
+            placeholder="johnsnow@mail.com"
           />
         </div>
       </div>
 
       <div className="uk-margin">
         <label className="uk-form-label text uk-text-bold" htmlFor="password">
-          Password:
+          Contraseña:
         </label>
         <div className="uk-inline">
           <span className="uk-form-icon" uk-icon="icon: lock" />
@@ -31,6 +33,7 @@ const Form = ({ handleSubmit, handleChange, error, email, password }) => (
             className="uk-input"
             type="password"
             name="password"
+            placeholder="********"
           />
         </div>
       </div>
@@ -41,9 +44,9 @@ const Form = ({ handleSubmit, handleChange, error, email, password }) => (
         </div>
       )}
 
-      <div>
-        <button className="uk-button btn text uk-text-bold">Login</button>
-      </div>
+      <button className="uk-button btn text uk-text-bold uk-margin">
+        iniciar sesión
+      </button>
     </form>
   </div>
 );

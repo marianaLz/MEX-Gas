@@ -21,29 +21,6 @@
   margin-top: 2.5vh;
   margin-left: 0.5vw;
 }
-.btn {
-  border-radius: 50px;
-  background-color: #b0be78 !important;
-  width: 100%;
-}
-
-.text {
-  color: #668074 !important;
-}
-
-.auth {
-  background-color: #f8f8f8 !important;
-  padding: 8vh;
-  border-radius: 50px;
-}
-
-input {
-  border-radius: 50px !important;
-}
-
-p {
-  margin-top: -10vh;
-}
 
 @media (max-width: 800px) {
   .logo {
@@ -53,9 +30,8 @@ p {
   }
 
   .letras {
-    width: 40%;
+    width: 45%;
     height: 45%;
     margin-top: 3.5vh;
-    margin-left: 1vw;
   }
 }

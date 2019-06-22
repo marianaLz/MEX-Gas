@@ -17,7 +17,7 @@ const Nav = () => (
       />
     </button>
     <div
-      className="uk-container-center uk-flex uk-flex-center@s"
+      className="uk-container-center uk-flex uk-flex-center"
       style={{ width: "100%" }}
     >
       <img className="logo" src={logo} />
@@ -45,7 +45,7 @@ const Nav = () => (
 
         <div className="uk-container uk-margin">
           <a
-            className="uk-button uk-button-primary btn uk-text-bold uk-margin-top-large text"
+            className="uk-button btn uk-text-bold uk-margin-top-large text"
             href="/api/auth/login"
           >
             Iniciar sesión

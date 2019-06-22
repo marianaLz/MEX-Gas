@@ -1,0 +1,16 @@
+.auth {
+  background-color: #f8f8f8 !important;
+  padding: 8vh;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.background-video {
+  width: 100vw !important;
+  height: 90vh !important;
+}
+
+input {
+  border-radius: 25px !important;
+  width: 300px !important;
+}

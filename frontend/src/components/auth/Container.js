@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Form from "./Form";
 import { login, register } from "../../services/auth";
+import video from "../../assets/video.gif";
+import "../../stylesheets/Auth.css";
 
 class Container extends Component {
   state = {
@@ -56,10 +58,13 @@ class Container extends Component {
   };
 
   render() {
-    console.log(this.props);
     const { error, auth } = this.state;
     return (
       <div>
+        <img className="background-video" src={video} />
+        {/* <video className="background-video" loop autoPlay>
+          <source src={video} type="video/mp4" />
+        </video> */}
         <div className="uk-position-center auth">
           <Form
             {...auth}
