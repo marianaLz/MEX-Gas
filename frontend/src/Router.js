@@ -8,22 +8,22 @@ const Router = ({ setUser, user }) => (
   <Switch>
     <Route
       exact
-      path="/api"
+      path="/map"
       render={props => <Main user={user} {...props} />}
     />
     <Route
       exact
-      path="/api/auth/login"
+      path="/map/auth/login"
       render={props => <Container {...props} setUser={setUser} user={user} />}
     />
     <Route
       exact
-      path="/api/auth/register"
+      path="/map/auth/register"
       render={props => <Container {...props} setUser={setUser} user={user} />}
     />
     <Route
       exact
-      path="/api/gas/:id"
+      path="/map/gas/:id"
       render={props => <Gas {...props} setUser={setUser} user={user} />}
     />
   </Switch>

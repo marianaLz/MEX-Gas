@@ -46,12 +46,12 @@ const Nav = () => (
         <div className="uk-container uk-margin">
           <a
             className="uk-button btn uk-text-bold uk-margin-top-large text"
-            href="/api/auth/login"
+            href="/map/auth/login"
           >
             Iniciar sesión
           </a>
           <hr className="uk-divider-icon" />
-          <a className="uk-text-bold text" href="/api/auth/register">
+          <a className="uk-text-bold text" href="/map/auth/register">
             Registrarse
           </a>
         </div>

@@ -71,7 +71,7 @@ class Main extends Component {
             e.dieasel +
             "</strong><p>" +
             e.location.calle +
-            "</p><a href='/api/gas/" +
+            "</p><a href='/map/gas/" +
             e._id +
             "'>Comentarios</a>"
         );
