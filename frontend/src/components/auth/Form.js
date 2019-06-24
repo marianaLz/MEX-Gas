@@ -13,7 +13,7 @@ const Form = ({ handleSubmit, handleChange, error, email, password }) => (
           <input
             value={email}
             onChange={handleChange}
-            className="uk-input"
+            className="uk-input input-auth"
             type="email"
             name="email"
             placeholder="johnsnow@mail.com"
@@ -30,7 +30,7 @@ const Form = ({ handleSubmit, handleChange, error, email, password }) => (
           <input
             value={password}
             onChange={handleChange}
-            className="uk-input"
+            className="uk-input input-auth"
             type="password"
             name="password"
             placeholder="********"

@@ -12,14 +12,11 @@
 .logo {
   width: 9%;
   height: 75%;
-  margin-top: 1.5vh;
 }
 
 .letras {
   width: 17%;
   height: 55%;
-  margin-top: 2.5vh;
-  margin-left: 0.5vw;
 }
 
 @media (max-width: 800px) {

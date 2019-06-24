@@ -10,7 +10,7 @@
   height: 90vh !important;
 }
 
-input {
+.input-auth {
   border-radius: 25px !important;
   width: 300px !important;
 }

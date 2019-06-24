@@ -1,0 +1,40 @@
+.rating-star {
+  width: 4vh;
+  height: 4vh;
+  fill: #d0d0d0;
+  padding: 0 2px;
+  cursor: pointer;
+  transition: ease 0.2s all;
+  border-radius: 100%;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+}
+.rating-star.hover,
+.rating-star.selected {
+  fill: #fdd835;
+}
+.rating-star.hover {
+  transform: scale(1.2);
+  fill: #fbc02d;
+}
+
+.star-wrapper {
+  display: inline-block;
+  position: relative;
+}
+.label-wrapper {
+  height: 45px;
+  position: absolute;
+  margin-right: -50px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(251, 192, 45, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(251, 192, 45, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 192, 45, 0);
+  }
+}

@@ -19,7 +19,7 @@ const Router = ({ setUser, user }) => (
     <Route
       exact
       path="/map/auth/register"
-      render={props => <Container {...props} setUser={setUser} user={user} />}
+      render={props => <Container {...props} />}
     />
     <Route
       exact

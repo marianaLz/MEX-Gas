@@ -1,0 +1,18 @@
+.img-slider,
+.slider {
+  width: 60vw !important;
+  height: 30vh;
+}
+
+.uk-card {
+  width: 40vw !important;
+  background-color: #f8f8f8 !important;
+}
+
+.height-small {
+  height: 7vh !important;
+}
+
+textarea {
+  width: 35vw !important;
+}

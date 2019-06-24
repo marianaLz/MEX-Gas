@@ -61,10 +61,8 @@ class Container extends Component {
     const { error, auth } = this.state;
     return (
       <div>
-        <img className="background-video" src={video} />
-        {/* <video className="background-video" loop autoPlay>
-          <source src={video} type="video/mp4" />
-        </video> */}
+        <img className="background-video" src={video} alt="gif" />
+
         <div className="uk-position-center auth">
           <Form
             {...auth}

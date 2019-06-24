@@ -11,20 +11,15 @@ const Nav = () => (
       uk-toggle="target: #menu"
     >
       <span
-        uk-icon="icon: menu; ratio: 2"
+        uk-icon="icon: menu; ratio: 2.5"
         uk-toggle="target: #canvas"
         id="menu"
       />
     </button>
-    <div
-      className="uk-container-center uk-flex uk-flex-center"
-      style={{ width: "100%" }}
-    >
-      <a className="uk-flex uk-flex-center" href="/map">
-        <img className="logo" src={logo} />
-        <img className="letras" src={letras} />
-      </a>
-    </div>
+    <a className="uk-flex uk-flex-center uk-flex-middle" href="/map">
+      <img className="logo" src={logo} alt="logo" />
+      <img className="letras" src={letras} alt="letras" />
+    </a>
 
     <div
       id="canvas"
@@ -37,13 +32,11 @@ const Nav = () => (
           uk-close="true"
           uk-toggle="target: #menu"
         />
-        <img src={logoComplete} />
-        <p className="uk-container uk-margin-large">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+        <img src={logoComplete} alt="logo" />
+        <h4 className="uk-container uk-margin-large">
+          Accede para poder ver los comentarios de otros usuarios y compartir tu
+          experiencia con los demás.
+        </h4>
 
         <div className="uk-container uk-margin">
           <a
