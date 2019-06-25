@@ -26,3 +26,12 @@ export const una_gas = id => {
       throw error;
     });
 };
+
+export const putComment = (id, data) => {
+  return axios
+    .post(`${base_url}/gas/${id}/review`, data)
+    .then(res => res.data)
+    .catch(error => {
+      throw error;
+    });
+};

@@ -10,25 +10,28 @@
 }
 
 .logo {
-  width: 9%;
+  width: 25%;
   height: 75%;
 }
 
 .letras {
-  width: 17%;
-  height: 55%;
+  width: 55%;
+  height: 100%;
+  margin-left: 10px;
 }
 
 @media (max-width: 800px) {
   .logo {
-    width: 20%;
+    width: 30%;
     height: 60%;
-    margin-top: 2.5vh;
   }
 
   .letras {
-    width: 45%;
+    width: 50%;
     height: 45%;
-    margin-top: 3.5vh;
+  }
+
+  .disp {
+    display: none;
   }
 }

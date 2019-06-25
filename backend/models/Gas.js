@@ -21,10 +21,12 @@ const GasSchema = new Schema(
         type: [Number]
       }
     },
-    comments: {
-      type: Schema.Types.ObjectId,
-      ref: "Comment"
-    }
+    comments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Comment"
+      }
+    ]
   },
   { timestamps: true }
 );

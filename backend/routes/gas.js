@@ -61,7 +61,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res, next) => {
   const { id } = req.params;
   Gas.findById(id)
-    .populate({ path: "comments" })
+    .populate("comments")
     .then(gas => res.status(200).json(gas))
     .catch(error => {
       error.action = "Error al ver detalle";

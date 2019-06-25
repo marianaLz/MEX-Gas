@@ -1,14 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import mapboxgl from "mapbox-gl";
 import "../stylesheets/Gas.css";
-import { una_gas } from "../services/gas";
+import { una_gas, putComment } from "../services/gas";
 import Rate from "./Rate";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWx6eiIsImEiOiJjandrNmVzNzUwNWZjNGFqdGcwNmJ2ZWhpIn0.ybY6wnAtJwj-Tq0c46sW6A";
 
-class Gas extends React.Component {
+class Gas extends Component {
+  state = {
+    data: {}
+  };
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -81,8 +84,29 @@ class Gas extends React.Component {
         .addTo(map);
     });
   }
+  handleChange = e => {
+    let { data } = this.state;
+    let { value, name } = e.target;
+
+    data[name] = value;
+    this.setState({ data });
+    console.log("data", data);
+  };
+
+  //uploadImage = () =>{...}
+  sendComments = e => {
+    e.preventDefault();
+    let id = this.props.match.params.id;
+    let { data } = this.state;
+    putComment(id, data)
+      .then(res => console.log(res))
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
+    let { handleChange } = this;
     return (
       <div className="uk-flex uk-flex-row">
         <div>
@@ -159,14 +183,15 @@ class Gas extends React.Component {
             <Rate />
           </div>
         </div>
-        <form>
+        <form onSubmit={this.sendComments}>
           <div className="uk-card uk-card-default uk-height-small uk-position-bottom-right">
             <div className="uk-card-body uk-padding-small uk-padding-top uk-flex uk-flex-between uk-flex-middle">
               <textarea
                 rows="3"
                 className="uk-textarea"
-                name="comment"
+                name="content"
                 placeholder="Escribe un comentario"
+                onChange={handleChange}
               />
               <div className="uk-form-custom">
                 <button
