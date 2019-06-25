@@ -26,7 +26,8 @@ const GasSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Comment"
       }
-    ]
+    ],
+    rating: Number
   },
   { timestamps: true }
 );

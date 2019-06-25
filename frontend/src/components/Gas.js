@@ -4,14 +4,37 @@ import mapboxgl from "mapbox-gl";
 import "../stylesheets/Gas.css";
 import { una_gas, putComment } from "../services/gas";
 import Rate from "./Rate";
+import Slider from "./Slider";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWx6eiIsImEiOiJjandrNmVzNzUwNWZjNGFqdGcwNmJ2ZWhpIn0.ybY6wnAtJwj-Tq0c46sW6A";
 
 class Gas extends Component {
   state = {
-    data: {}
+    data: {},
+    gas: {}
   };
+
+  handleChange = e => {
+    let { data } = this.state;
+    let { value, name } = e.target;
+    data[name] = value;
+    this.setState({ data });
+  };
+
+  //uploadImage = () =>{...}
+
+  sendComments = e => {
+    e.preventDefault();
+    let id = this.props.match.params.id;
+    let { data } = this.state;
+    putComment(id, data)
+      .then(res => console.log(res))
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -55,8 +78,7 @@ class Gas extends Component {
 
     let id = this.props.match.params.id;
     una_gas(id).then(gas => {
-      console.log("<<<<<<<<<<<", gas);
-
+      this.setState({ gas });
       const lat = gas.location.coordinates[1];
       const lng = gas.location.coordinates[0];
       if (gas.dieasel == null) {
@@ -84,135 +106,63 @@ class Gas extends Component {
         .addTo(map);
     });
   }
-  handleChange = e => {
-    let { data } = this.state;
-    let { value, name } = e.target;
-
-    data[name] = value;
-    this.setState({ data });
-    console.log("data", data);
-  };
-
-  //uploadImage = () =>{...}
-  sendComments = e => {
-    e.preventDefault();
-    let id = this.props.match.params.id;
-    let { data } = this.state;
-    putComment(id, data)
-      .then(res => console.log(res))
-      .catch(err => {
-        console.log(err);
-      });
-  };
 
   render() {
     let { handleChange } = this;
+    let { gas } = this.state;
     return (
-      <div className="uk-flex uk-flex-row">
-        <div>
-          <div
-            style={{ width: "60vw", height: "60vh" }}
-            ref={e => (this.mapContainer = e)}
-          />
-          <div
-            className="uk-position-relative uk-visible-toggle uk-light slider"
-            tabIndex="-1"
-            uk-slider="true"
-          >
-            <ul className="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
-              <li>
-                <img
-                  className="img-slider"
-                  src="http://cdn.shopify.com/s/files/1/0191/7850/products/RICKMORTY_39_-_COVER_A_FNL_WEB_1024x1024.jpg?v=1530034748"
-                  alt=""
-                />
-                <div className="uk-overlay uk-overlay-primary uk-position-bottom uk-padding-small">
-                  <p>
-                    Default Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <img
-                  className="img-slider"
-                  src="http://cdn.shopify.com/s/files/1/0191/7850/products/RICKMORTY_39_-_COVER_A_FNL_WEB_1024x1024.jpg?v=1530034748"
-                  alt=""
-                />
-              </li>
-              <li>
-                <img
-                  className="img-slider"
-                  src="http://cdn.shopify.com/s/files/1/0191/7850/products/RICKMORTY_39_-_COVER_A_FNL_WEB_1024x1024.jpg?v=1530034748"
-                  alt=""
-                />
-              </li>
-              <li>
-                <img
-                  className="img-slider"
-                  src="http://cdn.shopify.com/s/files/1/0191/7850/products/RICKMORTY_39_-_COVER_A_FNL_WEB_1024x1024.jpg?v=1530034748"
-                  alt=""
-                />
-              </li>
-              <li>
-                <img
-                  className="img-slider"
-                  src="http://cdn.shopify.com/s/files/1/0191/7850/products/RICKMORTY_39_-_COVER_A_FNL_WEB_1024x1024.jpg?v=1530034748"
-                  alt=""
-                />
-              </li>
-            </ul>
-
-            <a
-              className="uk-position-center-left uk-position-small uk-hidden-hover"
-              href="#"
-              uk-slidenav-previous="true"
-              uk-slider-item="previous"
+      console.log(gas.comments),
+      (
+        <div className="uk-flex uk-flex-row">
+          <div>
+            <div
+              style={{ width: "60vw", height: "60vh" }}
+              ref={e => (this.mapContainer = e)}
             />
-            <a
-              className="uk-position-center-right uk-position-small uk-hidden-hover"
-              href="#"
-              uk-slidenav-next="true"
-              uk-slider-item="next"
-            />
+            <Slider />
           </div>
-        </div>
-        <div className="uk-card uk-card-default height-small">
-          <div className="uk-card-body uk-padding-small uk-flex uk-flex-center">
-            <h4>Califica esta gasolinera:</h4>
-            <Rate />
-          </div>
-        </div>
-        <form onSubmit={this.sendComments}>
-          <div className="uk-card uk-card-default uk-height-small uk-position-bottom-right">
-            <div className="uk-card-body uk-padding-small uk-padding-top uk-flex uk-flex-between uk-flex-middle">
-              <textarea
-                rows="3"
-                className="uk-textarea"
-                name="content"
-                placeholder="Escribe un comentario"
-                onChange={handleChange}
-              />
-              <div className="uk-form-custom">
-                <button
-                  type="button"
-                  tabIndex="-1"
-                  uk-icon="icon: camera; ratio: 1.5"
-                />
-                <input type="file" name="commentPic" />
+          <div>
+            <div className="uk-card uk-card-default height-small">
+              <div className="uk-card-body uk-padding-small uk-flex uk-flex-center">
+                <h4>Califica esta gasolinera:</h4>
+                <Rate />
               </div>
             </div>
-            <div className="uk-card-footer uk-padding-remove">
-              <button
-                type="submit"
-                className="uk-button uk-button-text uk-align-center uk-margin-small-top"
-              >
-                Comment
-              </button>
-            </div>
+
+            <div className="uk-panel uk-panel-scrollable">gas.comments</div>
+
+            <form onSubmit={this.sendComments}>
+              <div className="uk-card uk-card-default uk-height-small uk-position-bottom-right">
+                <div className="uk-card-body uk-padding-small uk-padding-top uk-flex uk-flex-between uk-flex-middle">
+                  <textarea
+                    rows="3"
+                    className="uk-textarea"
+                    name="content"
+                    placeholder="Escribe un comentario"
+                    onChange={handleChange}
+                  />
+                  <div className="uk-form-custom">
+                    <button
+                      type="button"
+                      tabIndex="-1"
+                      uk-icon="icon: camera; ratio: 1.5"
+                    />
+                    <input type="file" name="commentPic" />
+                  </div>
+                </div>
+                <div className="uk-card-footer uk-padding-remove">
+                  <button
+                    type="submit"
+                    className="uk-button uk-button-text uk-align-center uk-margin-small-top"
+                  >
+                    Comment
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
+        </div>
+      )
     );
   }
 }

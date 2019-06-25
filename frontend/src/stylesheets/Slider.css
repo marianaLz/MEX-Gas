@@ -1,0 +1,10 @@
+.img-slider,
+.slider {
+  width: 60vw !important;
+  height: 30vh;
+  border-radius: 20px;
+}
+
+.img-slider {
+  padding: 10px 5px;
+}
