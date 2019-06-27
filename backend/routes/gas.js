@@ -5,7 +5,7 @@ const Comment = require("../models/Comment");
 const axios = require("axios");
 const base_url = "https://api.datos.gob.mx/v1/precio.gasolina.publico";
 const upload = require("../helpers/multer.js");
-const uploadCommentPicture = upload.uploadCommentPicture;
+//const uploadCommentPicture = upload.uploadCommentPicture;
 
 router.get("/json", (req, res, next) => {
   axios
@@ -71,7 +71,7 @@ router.get("/:id", (req, res, next) => {
 
 router.post(
   "/:id/review",
-  uploadCommentPicture.single("commentPic"),
+  //uploadCommentPicture.single("commentPic"),
   (req, res, next) => {
     const { id } = req.params;
     let file = req.file;

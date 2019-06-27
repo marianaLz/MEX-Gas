@@ -1,7 +1,7 @@
 .auth {
   background-color: #f8f8f8 !important;
   padding: 8vh;
-  border-radius: 25px;
+  border-radius: 15px;
   text-align: center;
 }
 
@@ -13,4 +13,10 @@
 .input-auth {
   border-radius: 25px !important;
   width: 300px !important;
+}
+
+@media (max-width: 800px) {
+  .auth {
+    width: 80vw !important;
+  }
 }

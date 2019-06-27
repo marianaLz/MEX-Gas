@@ -3,22 +3,20 @@ const cloudinaryStorage = require("multer-storage-cloudinary");
 const multer = require("multer");
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDNAME,
-  api_key: process.env.CLOUDAPIKEY,
-  api_secret: process.env.CLOUDSECRET
+  cloud_name: process.env.CLOUD,
+  api_key: process.env.APIKEY,
+  api_secret: process.env.APISECRET
 });
 
-let storageCommentPictures = cloudinaryStorage({
-  cloudinary,
-  folder: "comment-pictures",
-  allowedFormats: ["jpg", "png"],
+var storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "mex-gas",
+  allowedFormats: ["jpg", "png", "jpeg"],
   filename: function(req, file, cb) {
-    cb(null, req.file);
+    cb(null, file.originalname);
   }
 });
 
-const uploadCommentPicture = multer({ storage: storageCommentPictures });
+const uploadCloud = multer({ storage: storage });
 
-module.exports = {
-  uploadCommentPicture
-};
+module.exports = uploadCloud;
