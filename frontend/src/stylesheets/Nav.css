@@ -21,14 +21,19 @@
 }
 
 @media (max-width: 800px) {
-  .logo {
-    width: 30%;
+  .mar {
+    margin-left: 20vw;
+  }
+
+  .logo,
+  .hamburger {
+    width: 70%;
     height: 60%;
   }
 
   .letras {
-    width: 50%;
-    height: 45%;
+    width: 100%;
+    height: 100%;
   }
 
   .disp {

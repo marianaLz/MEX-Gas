@@ -115,9 +115,10 @@ class Gas extends Component {
     let { handleChange } = this;
     let { gas } = this.state;
     return (
-      <div className="uk-flex uk-flex-row">
+      <div className="uk-flex uk-flex-row cont">
         <div className="uk-margin-small-top uk-margin-small-left">
           <div
+            className="mapa"
             style={{ width: "60vw", height: "87vh" }}
             ref={e => (this.mapContainer = e)}
           />
@@ -159,7 +160,7 @@ class Gas extends Component {
                     />
                     <div>
                       <div
-                        className="uk-width-large uk-text-break uk-margin-right"
+                        className="uk-width-large uk-text-break uk-margin-right comment"
                         key={i}
                       >
                         {data.content}

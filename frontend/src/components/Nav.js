@@ -18,7 +18,7 @@ const Nav = () => (
         />
       </button>
       <a
-        className="uk-width-large uk-flex uk-flex-center  uk-flex-middle"
+        className="uk-width-large uk-flex uk-flex-center uk-flex-middle mar"
         href="/map"
       >
         <img className="logo" src={logo} alt="logo" />

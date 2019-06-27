@@ -18,3 +18,28 @@ textarea {
   height: 55px;
   margin: 0 20px;
 }
+
+@media (max-width: 800px) {
+  .cont {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mapa {
+    width: 96vw !important;
+    height: 62vh !important;
+  }
+
+  .uk-card,
+  .uk-panel {
+    width: 96vw !important;
+  }
+
+  textarea {
+    width: 90vw !important;
+  }
+
+  .comment {
+    width: 75vw !important;
+  }
+}
