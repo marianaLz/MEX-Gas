@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const authUtils = require("../helpers/auth");
 const crypto = require("crypto");
-const isProduction = process.env.NODE_ENV === "production";
 
 router.post("/register", (req, res, next) => {
   const salt = bcrypt.genSaltSync(10);

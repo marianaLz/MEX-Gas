@@ -14,10 +14,14 @@ class Rate extends Component {
   renderStar(item, index) {
     let hoverClass = index <= this.state.hoverStar ? "hover" : "";
     let selectedClass = index <= this.state.selectedStar ? "selected" : "";
+    const { handleRate } = this.props;
     return (
       <div
         className="star-wrapper"
-        onClick={() => this.setState({ selectedStar: index })}
+        onClick={() => {
+          handleRate(index);
+          this.setState({ selectedStar: index });
+        }}
       >
         <svg
           onMouseEnter={() => this.setState({ hoverStar: index, label: item })}

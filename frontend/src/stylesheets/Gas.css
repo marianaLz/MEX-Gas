@@ -1,10 +1,8 @@
-.uk-card {
-  width: 40vw !important;
+.uk-card,
+.uk-panel {
+  width: 38vw !important;
   background-color: #f8f8f8 !important;
-}
-
-.height-small {
-  height: 7vh !important;
+  border: 1px solid #e5e5e5;
 }
 
 textarea {
@@ -12,5 +10,11 @@ textarea {
 }
 
 .uk-panel-scrollable {
-  height: 65vh !important;
+  height: 62vh !important;
+}
+
+.usr {
+  width: 55px;
+  height: 55px;
+  margin: 0 20px;
 }

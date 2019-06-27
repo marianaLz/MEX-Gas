@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 import letras from "../assets/letras.png";
 const Nav = () => (
   <div className="uk-navbar uk-navbar-container uk-margin-remove">
-    <div className="uk-flex uk-flex-middle uk-flex-between uk-width-1-1">
+    <div className="uk-flex uk-flex-middle uk-width-2-3 uk-flex-between">
       <button
         className="uk-button uk-button-small uk-margin-left hamburger"
         type="button"
@@ -18,23 +18,12 @@ const Nav = () => (
         />
       </button>
       <a
-        className="uk-width-large uk-flex uk-flex-center uk-flex-middle"
+        className="uk-width-large uk-flex uk-flex-center  uk-flex-middle"
         href="/map"
       >
         <img className="logo" src={logo} alt="logo" />
         <img className="letras" src={letras} alt="letras" />
       </a>
-      <div className="uk-flex uk-margin-left">
-        <button
-          className="uk-margin-small-right"
-          type="button"
-          uk-icon="icon: plus-circle"
-          ratio="2"
-        />
-        <h5 className="uk-margin uk-margin-medium-right disp">
-          Crear nueva <br /> gasolinera
-        </h5>
-      </div>
     </div>
     <div
       id="canvas"

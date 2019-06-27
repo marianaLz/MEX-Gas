@@ -11,8 +11,15 @@ const commentSchema = Schema(
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    imagePath: String,
-    imageName: String
+    images: {
+      type: [String]
+    },
+    rating: Number,
+
+    expiration_date: {
+      type: Date,
+      default: Date.now()
+    }
   },
   {
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }

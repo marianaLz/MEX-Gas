@@ -82,9 +82,9 @@ router.post(
       imagePath = req.file.url;
       imageName = req.file.originalname;
     }
-    let content = req.body.content;
+    let { content, rating } = req.body;
     let authorId = req.user;
-    Comment.create({ imagePath, content, authorId, imageName }).then(
+    Comment.create({ imagePath, content, authorId, imageName, rating }).then(
       comment => {
         Gas.findByIdAndUpdate(id, { $push: { comments: comment } })
           .then(gas => res.status(200).json(gas))
