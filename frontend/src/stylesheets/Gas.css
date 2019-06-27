@@ -40,6 +40,14 @@ textarea {
   }
 
   .comment {
-    width: 75vw !important;
+    width: 70vw !important;
+  }
+
+  .uk-button-text {
+    text-decoration: underline !important;
+  }
+
+  .size {
+    font-size: 1rem;
   }
 }

@@ -127,7 +127,7 @@ class Gas extends Component {
           <form className="uk-panel" onSubmit={this.sendComments}>
             <div className="uk-card-body uk-padding-small">
               <div className="uk-flex uk-flex-center">
-                <h4>Califica esta gasolinera:</h4>
+                <h4 className="size">Califica esta gasolinera:</h4>
                 <Rate handleRate={this.handleRate} />
               </div>
               <textarea
