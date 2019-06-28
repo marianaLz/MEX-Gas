@@ -3,6 +3,8 @@ import "../stylesheets/Nav.css";
 import logoComplete from "../assets/logo-complete.png";
 import logo from "../assets/logo.png";
 import letras from "../assets/letras.png";
+import { Link } from "react-router-dom";
+
 const Nav = () => (
   <div className="uk-navbar uk-navbar-container uk-margin-remove">
     <div className="uk-flex uk-flex-middle uk-width-2-3 uk-flex-between">
@@ -43,16 +45,16 @@ const Nav = () => (
         </h4>
 
         <div className="uk-container uk-margin">
-          <a
+          <Link
+            to="/map/auth/login"
             className="uk-button btn uk-text-bold uk-margin-top-large text"
-            href="/map/auth/login"
           >
             Iniciar sesión
-          </a>
+          </Link>
           <hr className="uk-divider-icon" />
-          <a className="uk-text-bold text" href="/map/auth/register">
+          <Link to="/map/auth/register" className="uk-text-bold text">
             Registrarse
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "./Form";
-import { login, register } from "../../services/auth";
+import { loginUser, register } from "../../services/auth";
 import video from "../../assets/video.gif";
 import "../../stylesheets/Auth.css";
 
@@ -16,16 +16,21 @@ class Container extends Component {
     e.preventDefault();
     const { auth } = this.state;
     const { pathname } = this.props.location;
+    console.log(this.props);
+
     if (!auth.email.length) {
       return this.setState({ error: "Ingresa tus datos" });
     }
-    pathname === "/login" ? this.onLogin() : this.onRegister();
+    this.onLogin();
+    //this.onRegister();
+    //pathname === "map/auth/login" ? this.onLogin() : this.onRegister();
   };
 
   onLogin = () => {
     const { auth } = this.state;
-    login(auth)
+    loginUser(auth)
       .then(({ token, user }) => {
+        console.log(user);
         localStorage.setItem("TOKEN", token);
         localStorage.setItem("USER", JSON.stringify(user));
         this.props.setUser(user);
@@ -37,13 +42,15 @@ class Container extends Component {
   };
 
   onRegister = () => {
-    const { auth } = this.state;
-    register(auth)
+    const { auth } = this.state; //saca del state el auth
+    register(auth) // le manda el auth a la funcion register
       .then(({ token, user }) => {
+        console.log(user);
+
         localStorage.setItem("TOKEN", token);
         localStorage.setItem("USER", JSON.stringify(user));
         this.props.setUser(user);
-        this.props.history.push("/otra");
+        this.props.history.push("/map");
       })
       .catch(error => {
         return this.setState({ error: error.message });
@@ -61,7 +68,7 @@ class Container extends Component {
     const { error, auth } = this.state;
     return (
       <div>
-        <img className="background-video" src={video} alt="gif" />
+        {/* <img className="background-video" src={video} alt="gif" /> */}
 
         <div className="uk-position-center auth">
           <Form

@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import Main from "./Main";
 import Container from "./components/auth/Container";
 import Gas from "./components/Gas";
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
 
 const Router = ({ setUser, user }) => (
   <Switch>
@@ -14,12 +16,12 @@ const Router = ({ setUser, user }) => (
     <Route
       exact
       path="/map/auth/login"
-      render={props => <Container {...props} setUser={setUser} user={user} />}
+      render={props => <Login {...props} setUser={setUser} user={user} />}
     />
     <Route
       exact
       path="/map/auth/register"
-      render={props => <Container {...props} />}
+      render={props => <Signup {...props} setUser={setUser} user={user} />}
     />
     <Route
       exact
