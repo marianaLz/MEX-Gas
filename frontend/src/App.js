@@ -8,6 +8,11 @@ class App extends Component {
     user: null
   };
 
+  componentWillMount() {
+    let user = JSON.parse(localStorage.getItem("USER"));
+    this.setState({ user });
+  }
+
   setUser = user => {
     this.setState({ user });
   };
@@ -17,7 +22,7 @@ class App extends Component {
     return (
       <div>
         <Nav user={user} setUser={setUser} />
-        <Router setUser={setUser} />
+        <Router user={user} setUser={setUser} />
       </div>
     );
   }

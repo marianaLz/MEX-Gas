@@ -18,10 +18,17 @@ class Nav extends Component {
       <div className="uk-navbar uk-navbar-container uk-margin-remove">
         <div className="uk-flex uk-flex-middle uk-width-1-1">
           {user ? (
-            ""
+            <Link className="uk-flex uk-flex-middle uk-position-left uk-button uk-margin-left uk-padding-remove logout">
+              {" "}
+              <h6 className="disp parr uk-margin-top">VE A LA MEJOR</h6>
+              <span
+                className="uk-text-success"
+                uk-icon="icon: location; ratio: 2"
+              />
+            </Link>
           ) : (
             <button
-              className="uk-button uk-button-small uk-margin-left hamburger"
+              className="uk-button uk-button-small uk-margin-left hamburger uk-padding-remove"
               type="button"
               uk-toggle="target: #menu"
             >
@@ -40,11 +47,27 @@ class Nav extends Component {
           {user ? (
             <Link
               to="/map/auth/login"
-              className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-right logout"
+              className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-right uk-padding-remove logout"
               onClick={this.logout}
             >
+              {" "}
+              <h6 className="disp parr uk-margin-top">CERRAR SESIÓN</h6>
               <span uk-icon="icon: sign-out; ratio: 2" />
             </Link>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <button
+              to="/map/auth/login"
+              className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-xlarge-right  plus"
+            >
+              {" "}
+              <h6 className="disp parr uk-margin-top uk-margin-medium-right">
+                AÑADIR GASOLINERA
+              </h6>
+              <span uk-icon="icon: plus-circle; ratio: 2" />
+            </button>
           ) : (
             ""
           )}
@@ -60,11 +83,16 @@ class Nav extends Component {
               uk-close="true"
               uk-toggle="target: #menu"
             />
-            <img src={logoComplete} alt="logo" />
-            <h4 className="uk-container uk-margin-large">
-              Accede para poder ver los comentarios de otros usuarios y
-              compartir tu experiencia con los demás.
-            </h4>
+            <img
+              src={logoComplete}
+              alt="logo"
+              width="180"
+              className="uk-margin-large-top"
+            />
+            <h5 className="uk-container uk-margin-large">
+              Accede para poder ver los comentarios de otros usuarios, añadir
+              gasolineras y compartir tu experiencia con los demás.
+            </h5>
 
             <div className="uk-container uk-margin">
               <Link

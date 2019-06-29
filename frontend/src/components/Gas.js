@@ -13,7 +13,8 @@ mapboxgl.accessToken =
 class Gas extends Component {
   state = {
     data: {},
-    gas: {}
+    gas: {},
+    user: this.props.user
   };
 
   componentWillMount() {

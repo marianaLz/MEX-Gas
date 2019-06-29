@@ -7,6 +7,12 @@ const crypto = require("crypto");
 const isProduction = process.env.NODE_ENV === "production";
 
 router.post("/register", (req, res, next) => {
+  let { password, confirmPassword } = req.body;
+  if (password !== confirmPassword)
+    return res.status(500).json({
+      error: {},
+      message: "Contraseñas no conciden"
+    });
   const salt = bcrypt.genSaltSync(10);
   const hashedPassword = bcrypt.hashSync(req.body.password, salt);
   const randomToken = crypto.randomBytes(25).toString("hex");

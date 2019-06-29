@@ -30,7 +30,7 @@ class Login extends Component {
           timer: 1500
         });
         this.props.setUser(user);
-        this.props.history.push("/");
+        this.props.history.push("/map");
       })
       .catch(error => {
         return this.setState({ error: error.message });
@@ -65,6 +65,7 @@ class Login extends Component {
                     className="uk-input input-auth"
                     name="name"
                     placeholder="Nombre"
+                    required="true"
                   />
                 </div>
               </div>
@@ -79,6 +80,7 @@ class Login extends Component {
                     className="uk-input input-auth"
                     name="lastname"
                     placeholder="Apellido"
+                    required="true"
                   />
                 </div>
               </div>
@@ -97,6 +99,7 @@ class Login extends Component {
                     type="email"
                     name="email"
                     placeholder="johnsnow@mail.com"
+                    required="true"
                   />
                 </div>
               </div>
@@ -108,7 +111,11 @@ class Login extends Component {
                 >
                   Contraseña:
                 </label>
-                <div className="uk-inline">
+                <small className="uk-flex uk-flex-middle uk-flex-center uk-margin-small-top">
+                  Tu contraseña debe contener mínimo 8 caracteres, <br />
+                  un número y una letra mayúscula.
+                </small>
+                <div className="uk-inline uk-margin-top">
                   <span className="uk-form-icon" uk-icon="icon: lock" />
                   <input
                     onChange={this.handleChange}
@@ -116,6 +123,8 @@ class Login extends Component {
                     type="password"
                     name="password"
                     placeholder="********"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    required="true"
                   />
                 </div>
               </div>
@@ -132,8 +141,9 @@ class Login extends Component {
                     onChange={this.handleChange}
                     className="uk-input input-auth"
                     type="password"
-                    name="password"
+                    name="confirmPassword"
                     placeholder="********"
+                    required="true"
                   />
                 </div>
               </div>

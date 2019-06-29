@@ -1,6 +1,7 @@
 .uk-navbar-container,
 .hamburger,
-.logout {
+.logout,
+.plus {
   height: 10vh;
   background-color: #f8f8f8 !important;
 }
@@ -24,11 +25,11 @@
   margin-left: 40vw;
 }
 
-@media (max-width: 800px) {
-  .mar {
-    margin-left: 10vw;
-  }
+.parr {
+  width: 60px;
+}
 
+@media (max-width: 800px) {
   .logo {
     width: 20%;
   }
@@ -38,8 +39,10 @@
   }
 
   .hamburger,
-  .logout {
-    width: 12%;
+  .logout,
+  .plus {
+    width: 6%;
+    padding: 0 !important;
   }
 
   .disp {
