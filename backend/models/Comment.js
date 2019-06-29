@@ -14,12 +14,7 @@ const commentSchema = Schema(
     images: {
       type: [String]
     },
-    rating: Number,
-
-    expiration_date: {
-      type: Date,
-      default: Date.now()
-    }
+    rating: Number
   },
   {
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }

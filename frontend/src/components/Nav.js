@@ -18,14 +18,7 @@ class Nav extends Component {
       <div className="uk-navbar uk-navbar-container uk-margin-remove">
         <div className="uk-flex uk-flex-middle uk-width-1-1">
           {user ? (
-            <Link className="uk-flex uk-flex-middle uk-position-left uk-button uk-margin-left uk-padding-remove logout">
-              {" "}
-              <h6 className="disp parr uk-margin-top">VE A LA MEJOR</h6>
-              <span
-                className="uk-text-success"
-                uk-icon="icon: location; ratio: 2"
-              />
-            </Link>
+            ""
           ) : (
             <button
               className="uk-button uk-button-small uk-margin-left hamburger uk-padding-remove"
@@ -40,10 +33,10 @@ class Nav extends Component {
             </button>
           )}
 
-          <a className="uk-width-medium main" href="/map">
+          <Link to="/map" className="uk-width-medium main">
             <img className="logo" src={logo} alt="logo" />
             <img className="letras" src={letras} alt="letras" />
-          </a>
+          </Link>
           {user ? (
             <Link
               to="/map/auth/login"
@@ -58,16 +51,14 @@ class Nav extends Component {
             ""
           )}
           {user ? (
-            <button
-              to="/map/auth/login"
-              className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-xlarge-right  plus"
-            >
+            <Link className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-xlarge-right uk-padding-remove logout">
               {" "}
-              <h6 className="disp parr uk-margin-top uk-margin-medium-right">
-                AÑADIR GASOLINERA
-              </h6>
-              <span uk-icon="icon: plus-circle; ratio: 2" />
-            </button>
+              <h6 className="disp parr uk-margin-top">VE A LA MEJOR</h6>
+              <span
+                className="uk-text-success"
+                uk-icon="icon: location; ratio: 2"
+              />
+            </Link>
           ) : (
             ""
           )}

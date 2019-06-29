@@ -30,8 +30,6 @@ class Gas extends Component {
     data[name] = value;
   };
 
-  //uploadImage = () =>{...}
-
   sendComments = e => {
     let id = this.props.match.params.id;
     let { data } = this.state;
@@ -172,13 +170,14 @@ class Gas extends Component {
                         key={i}
                       >
                         {data.content}
-                        <p
+                        <br />
+                        <small
                           href="#"
-                          className="uk-text-small uk-text-muted uk-margin-remove"
+                          className="uk-text-muted uk-margin-remove"
                         >
                           Calificación: {data.rating} <br />
-                          Publicado {moment(data.expiration_date).fromNow()}
-                        </p>
+                          Publicado: {moment(data.createdAt).fromNow()}
+                        </small>
                       </div>
                     </div>
                   </div>

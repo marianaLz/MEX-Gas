@@ -7,6 +7,8 @@ import UIkit from "uikit";
 import Icons from "uikit/dist/js/uikit-icons";
 import { BrowserRouter } from "react-router-dom";
 
+import "moment/locale/es";
+
 import "uikit/dist/css/uikit.min.css";
 
 // loads the Icon plugin

@@ -31,5 +31,30 @@ const GasSchema = new Schema(
   { timestamps: true }
 );
 
+GasSchema.statics.getTop = function() {
+  return this.aggregate([
+    {
+      $lookup: {
+        from: "comments",
+        localField: "_id",
+        foreignField: "gas",
+        as: "comments"
+      }
+    },
+    { $match: { "comments.1": { $exists: true } } },
+    { $addFields: { averageRating: { $avg: "$comments.rating" } } },
+    { $sort: { averageRating: -1 } },
+    { $limit: 3 }
+  ]);
+};
+
+function autopopulate(next) {
+  this.populate("comments");
+  next();
+}
+
+GasSchema.pre("find", autopopulate);
+GasSchema.pre("findOne", autopopulate);
+
 GasSchema.index({ location: "2dsphere" });
 module.exports = mongoose.model("Gas", GasSchema);
