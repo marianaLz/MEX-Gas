@@ -3,12 +3,18 @@ import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 import mapboxgl from "mapbox-gl";
 import "./App.css";
 import { gas } from "../src/services/gas";
+import Rate from "./components/Rate";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWx6eiIsImEiOiJjandrNmVzNzUwNWZjNGFqdGcwNmJ2ZWhpIn0.ybY6wnAtJwj-Tq0c46sW6A";
 
 class Main extends Component {
   componentDidMount() {
+    const map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: "mapbox://styles/mapbox/streets-v9"
+    });
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         const user_location = [
@@ -22,11 +28,6 @@ class Main extends Component {
           .addTo(map);
       });
     }
-
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v9"
-    });
 
     map.addControl(
       new mapboxgl.GeolocateControl({
@@ -60,7 +61,7 @@ class Main extends Component {
           e.dieasel = "No disponible";
         }
         const popup = new mapboxgl.Popup().setHTML(
-          "<p>Estrellitas</p><h5>" +
+          "<h5>" +
             name +
             "</h5>" +
             "<strong>Premium: $" +

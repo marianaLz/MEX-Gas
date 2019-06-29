@@ -51,7 +51,10 @@ class Nav extends Component {
             ""
           )}
           {user ? (
-            <Link className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-xlarge-right uk-padding-remove logout">
+            <Link
+              to="/map/gas/5d02b8434923e8913df7f0f0"
+              className="uk-flex uk-flex-middle uk-position-right uk-button uk-margin-xlarge-right uk-padding-remove logout"
+            >
               {" "}
               <h6 className="disp parr uk-margin-top">VE A LA MEJOR</h6>
               <span

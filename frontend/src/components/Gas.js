@@ -91,9 +91,9 @@ class Gas extends Component {
         gas.dieasel = "No disponible";
       }
       const popup = new mapboxgl.Popup().setHTML(
-        "<p>Estrellitas</p><h4>" +
+        "<h5>" +
           gas.razonsocial +
-          "</h4>" +
+          "</h5>" +
           "<strong>Premium: $" +
           gas.premium +
           "</strong><br><strong>Magna: $" +

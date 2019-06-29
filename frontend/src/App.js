@@ -16,6 +16,7 @@ class App extends Component {
   setUser = user => {
     this.setState({ user });
   };
+
   render() {
     let { user } = this.state;
     let { setUser } = this;
