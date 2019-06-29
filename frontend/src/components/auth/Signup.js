@@ -1,22 +1,40 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
-import { loginUser, register } from "../../services/auth";
+import { Redirect } from "react-router-dom";
+import { register } from "../../services/auth";
 import video from "../../assets/video.gif";
 import "../../stylesheets/Auth.css";
+import Swal from "sweetalert2";
 
-class Signup extends Component {
+class Login extends Component {
   state = {
     auth: {
+      name: "",
+      lastname: "",
       email: "",
       password: ""
-    }
+    },
+    error: ""
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const { auth } = this.state;
-    console.log(this.props);
-    this.onLogin(auth);
+    register(auth)
+      .then(({ user }) => {
+        localStorage.setItem("USER", JSON.stringify(user));
+        Swal.fire({
+          position: "center",
+          type: "success",
+          title: "Signed in successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.props.setUser(user);
+        this.props.history.push("/");
+      })
+      .catch(error => {
+        return this.setState({ error: error.message });
+      });
   };
 
   handleChange = e => {
@@ -27,13 +45,43 @@ class Signup extends Component {
   };
 
   onRedirect = () => {
-    return this.state.auth === "" ? (
+    const isLog = localStorage.getItem("USER");
+
+    return !isLog ? (
       <div>
-        {/* <img className="background-video" src={video} alt="gif" /> */}
+        <img className="background-video" src={video} alt="gif" />
 
         <div className="uk-position-center auth">
           <div>
             <form className="uk-form-stacked" onSubmit={this.handleSubmit}>
+              <div className="uk-margin">
+                <label className="uk-form-label text uk-text-bold">
+                  Nombre:
+                </label>
+                <div className="uk-inline">
+                  <span className="uk-form-icon" uk-icon="icon: user" />
+                  <input
+                    onChange={this.handleChange}
+                    className="uk-input input-auth"
+                    name="name"
+                    placeholder="Nombre"
+                  />
+                </div>
+              </div>
+              <div className="uk-margin">
+                <label className="uk-form-label text uk-text-bold">
+                  Apellido:
+                </label>
+                <div className="uk-inline">
+                  <span className="uk-form-icon" uk-icon="icon: users" />
+                  <input
+                    onChange={this.handleChange}
+                    className="uk-input input-auth"
+                    name="lastname"
+                    placeholder="Apellido"
+                  />
+                </div>
+              </div>
               <div className="uk-margin">
                 <label
                   className="uk-form-label text uk-text-bold"
@@ -71,14 +119,31 @@ class Signup extends Component {
                   />
                 </div>
               </div>
-
-              {/* {error && (
-                <div className="uk-alert-danger" uk-alert="true">
-                  <p>{error}</p>
+              <div className="uk-margin">
+                <label
+                  className="uk-form-label text uk-text-bold"
+                  htmlFor="password"
+                >
+                  Confirmar contraseña:
+                </label>
+                <div className="uk-inline">
+                  <span className="uk-form-icon" uk-icon="icon: lock" />
+                  <input
+                    onChange={this.handleChange}
+                    className="uk-input input-auth"
+                    type="password"
+                    name="password"
+                    placeholder="********"
+                  />
                 </div>
-              )} */}
+              </div>
 
-              <button className="uk-button btn text uk-text-bold uk-margin">
+              {this.error && <p className="uk-text-danger">{this.error}</p>}
+
+              <button
+                type="submit"
+                className="uk-button btn text uk-text-bold uk-margin"
+              >
                 Registrarse
               </button>
             </form>
@@ -86,7 +151,7 @@ class Signup extends Component {
         </div>
       </div>
     ) : (
-      <Redirect to="/" />
+      <Redirect to="/map" />
     );
   };
 
@@ -95,4 +160,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default Login;

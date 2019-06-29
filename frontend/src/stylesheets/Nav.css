@@ -1,5 +1,6 @@
 .uk-navbar-container,
-.hamburger {
+.hamburger,
+.logout {
   height: 10vh;
   background-color: #f8f8f8 !important;
 }
@@ -10,33 +11,42 @@
 }
 
 .logo {
-  width: 25%;
-  height: 75%;
+  width: 40%;
 }
 
 .letras {
-  width: 40%;
-  height: 80%;
+  width: 55%;
   margin-left: 10px;
+}
+
+.main {
+  position: absolute;
+  margin-left: 40vw;
 }
 
 @media (max-width: 800px) {
   .mar {
-    margin-left: 20vw;
+    margin-left: 10vw;
   }
 
-  .logo,
-  .hamburger {
-    width: 70%;
-    height: 60%;
+  .logo {
+    width: 20%;
   }
 
   .letras {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+  }
+
+  .hamburger,
+  .logout {
+    width: 12%;
   }
 
   .disp {
     display: none;
+  }
+
+  .main {
+    margin-left: 27vw;
   }
 }

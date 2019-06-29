@@ -16,6 +16,13 @@ class Gas extends Component {
     gas: {}
   };
 
+  componentWillMount() {
+    let user = JSON.parse(localStorage.getItem("USER"));
+    if (!user) {
+      this.props.history.push("/map/auth/login");
+    }
+  }
+
   handleChange = e => {
     let { data } = this.state;
     let { value, name } = e.target;

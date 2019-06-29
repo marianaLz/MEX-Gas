@@ -4,11 +4,20 @@ import Nav from "./components/Nav";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    user: null
+  };
+
+  setUser = user => {
+    this.setState({ user });
+  };
   render() {
+    let { user } = this.state;
+    let { setUser } = this;
     return (
       <div>
-        <Nav />
-        <Router />
+        <Nav user={user} setUser={setUser} />
+        <Router setUser={setUser} />
       </div>
     );
   }

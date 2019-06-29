@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Main from "./Main";
-import Container from "./components/auth/Container";
 import Gas from "./components/Gas";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";

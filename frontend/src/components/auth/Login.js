@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
-import { loginUser, register } from "../../services/auth";
+import { Redirect } from "react-router-dom";
+import { loginUser } from "../../services/auth";
 import video from "../../assets/video.gif";
 import "../../stylesheets/Auth.css";
 import Swal from "sweetalert2";
@@ -18,12 +18,16 @@ class Login extends Component {
     const { auth } = this.state;
     loginUser(auth)
       .then(({ user }) => {
-        console.log(user);
-        //localStorage.setItem("TOKEN", token);
         localStorage.setItem("USER", JSON.stringify(user));
-        Swal.fire("Good job!", "You clicked the button!", "success");
+        Swal.fire({
+          position: "center",
+          type: "success",
+          title: "Logged in successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.props.setUser(user);
-        this.props.history.push("/");
+        this.props.history.push("/map");
       })
       .catch(error => {
         return this.setState({ error: error.message });
@@ -42,7 +46,7 @@ class Login extends Component {
 
     return !isLog ? (
       <div>
-        {/* <img className="background-video" src={video} alt="gif" /> */}
+        <img className="background-video" src={video} alt="gif" />
 
         <div className="uk-position-center auth">
           <div>
@@ -84,13 +88,6 @@ class Login extends Component {
                   />
                 </div>
               </div>
-
-              {/* {error && (
-                <div className="uk-alert-danger" uk-alert="true">
-                  <p>{error}</p>
-                </div>
-              )} */}
-
               <button
                 type="submit"
                 className="uk-button btn text uk-text-bold uk-margin"
