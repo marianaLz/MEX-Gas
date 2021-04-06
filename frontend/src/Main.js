@@ -6,7 +6,7 @@ import { gas } from "../src/services/gas";
 import Rate from "./components/Rate";
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoibWx6eiIsImEiOiJjandrNmVzNzUwNWZjNGFqdGcwNmJ2ZWhpIn0.ybY6wnAtJwj-Tq0c46sW6A";
+  "pk.eyJ1IjoibWx6eiIsImEiOiJjandrNmVzNzUwNWZjNGFqdGcwNmJ2ZWhpIn0.ybY6wnAtJwj-Tq0c46sW6B";
 
 class Main extends Component {
   componentDidMount() {
